@@ -35,6 +35,20 @@ function getSignal(row) {
   return "MANTENER";
 }
 
+function getSourceLabel(row) {
+  const reliability = row.sourceReliability || "unreliable";
+  if (reliability === "reliable") return "Actualizada";
+  if (reliability === "stale") return "Ultimo conocido";
+  return "No confiable";
+}
+
+function sourceClass(row) {
+  const reliability = row.sourceReliability || "unreliable";
+  if (reliability === "reliable") return "source-reliable";
+  if (reliability === "stale") return "source-stale";
+  return "source-unreliable";
+}
+
 function formatMoney(value, currency) {
   const number = toNumber(value);
   if (number === null) return "-";
@@ -77,6 +91,7 @@ function getDisplayNote(row) {
   const details = [row.note];
   if (row.bidAskStatus) details.push(`Bid/ask: ${row.bidAskStatus}.`);
   if (row.sourceStatus) details.push(`Fuente: ${row.sourceStatus}.`);
+  if (row.signalStatus) details.push(`Senal: ${row.signalStatus}.`);
   return details.filter(Boolean).join(" ");
 }
 
@@ -136,6 +151,7 @@ function render() {
       <td class="num">${formatMoney(row.sellTrigger, row.currency)}</td>
       <td class="priority ${priorityClass(row.priority)}">${escapeHtml(row.priority)}</td>
       <td><span class="badge ${signalClass(row.signal)}">${escapeHtml(row.signal)}</span></td>
+      <td class="source ${sourceClass(row)}">${escapeHtml(getSourceLabel(row))}</td>
       <td class="note">${escapeHtml(getDisplayNote(row))}</td>
       <td class="muted">${escapeHtml(row.updatedAt || LAST_UPDATED)}</td>
     </tr>
@@ -169,5 +185,5 @@ document.getElementById("resetButton").addEventListener("click", resetFilters);
 
 loadWatchlist().catch(error => {
   document.getElementById("lastUpdated").textContent = "Error de carga";
-  document.getElementById("watchlistBody").innerHTML = `<tr><td colspan="15">${escapeHtml(error.message)}</td></tr>`;
+  document.getElementById("watchlistBody").innerHTML = `<tr><td colspan="16">${escapeHtml(error.message)}</td></tr>`;
 });
