@@ -8,6 +8,7 @@ Panel publico y estatico para seguir oportunidades de una watchlist de PPI.
 - `style.css`: tema oscuro y layout responsive.
 - `script.js`: lee `data/watchlist.json`, aplica filtros y renderiza la tabla.
 - `data/watchlist.json`: datos publicos sanitizados, precios, bid/ask, estado de fuente y senal automatica.
+- `tools/fetch-public-prices.mjs`: modulo de fuentes publicas sin credenciales.
 
 ## Seguridad
 
@@ -41,33 +42,26 @@ El repositorio incluye un actualizador seguro:
 
 - `tools/update-watchlist.mjs`: mezcla precios publicos dentro de `data/watchlist.json`.
 - `.github/workflows/update-watchlist.yml`: corre cada 15 minutos de lunes a viernes entre 14:00 y 21:59 UTC, o manualmente desde Actions.
-- `data/prices-public.example.csv`: ejemplo de feed publico sanitizado.
+- `tools/fetch-public-prices.mjs`: intenta resolver cada ticker contra fuentes publicas sin login.
 
-El actualizador solo acepta estos campos:
+El workflow no requiere variables, secrets ni credenciales. Usa fuentes publicas sin login.
 
-- `ticker`
-- `price`
-- `dailyChange`
-- `bid`
-- `ask`
-- `updatedAt`
+Fuente principal:
 
-Si aparece un campo sensible como usuario, clave, token, email, CUIT, cuenta, comitente, patrimonio, liquidez, cantidad u orden, la actualizacion falla.
+- Yahoo Finance Chart publico (`query1.finance.yahoo.com/v8/finance/chart/{ticker}.BA`).
+- Para `GOOGLD` se usa el simbolo publico `GOGLD.BA`, porque Yahoo no publica `GOOGLD.BA`.
 
-Para usarlo en GitHub Actions, configurar una variable del repositorio llamada `PUBLIC_PRICE_FEED_URL` con una URL publica a un CSV o JSON sanitizado. No usar secrets ni credenciales. Si esa variable no esta configurada, el workflow corre pero no modifica precios.
+Limitaciones:
 
-Ejemplo CSV publico:
+- La fuente publica no entrega bid/ask confiable para estas especies. El sistema conserva el ultimo bid/ask conocido o deja `null` y lo marca en `bidAskStatus`.
+- Si una especie no tiene fuente publica confiable, queda con `sourceReliability: "unreliable"` y el panel muestra `Estado de fuente: No confiable`.
+- Si la fuente esta stale, queda con `sourceReliability: "stale"` y el panel muestra `Estado de fuente: Ultimo conocido`.
+- Las senales `REVISAR COMPRA` y `REVISAR VENTA` se bloquean cuando la fuente esta stale o no confiable. No se genera senal accionable basada solo en datos viejos.
 
-```csv
-ticker,price,dailyChange,bid,ask,updatedAt
-GOOGLD,6.51,-4.41,6.50,6.52,2026-06-02 17:25:10 America/Buenos_Aires
-CRM,16730,-3.96,16730,16750,2026-06-02 17:25:10 America/Buenos_Aires
-```
-
-Tambien se puede actualizar localmente:
+Tambien se puede probar localmente:
 
 ```bash
-node tools/update-watchlist.mjs data/prices-public.example.csv
+node tools/update-watchlist.mjs
 ```
 
 ## Publicacion rapida
