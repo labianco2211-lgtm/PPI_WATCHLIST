@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-02T21:39:08.190Z",
+  "lastUpdated": "2026-06-02T21:57:03.675Z",
   "items": [
     {
       "group": "PORTAFOLIO",
@@ -15,10 +15,14 @@
       "priority": "Media",
       "note": "No prioridad. Mirar solo si profundiza la baja.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (AMZND.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.8097165991902902,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "AMZND.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -34,10 +38,14 @@
       "priority": "Alta",
       "note": "Activo de calidad, pero no perseguir con suba fuerte.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (AVGOD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.2364998029168259,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "AVGOD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -53,10 +61,14 @@
       "priority": "Media",
       "note": "Fuerte, pero evitar comprar despues de la suba.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (CEGD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.9493670886075887,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "CEGD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -72,10 +84,14 @@
       "priority": "Media",
       "note": "Muy en verde. No perseguir tras suba fuerte.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (FSLRD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 1.4009526478005045,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "FSLRD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -91,10 +107,14 @@
       "priority": "Media/Alta",
       "note": "Cobertura. Sumar solo en retroceso o si mejora la punta.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (GLDD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.3514938488576583,
-      "signal": "CERCA DE COMPRA"
+      "signal": "CERCA DE COMPRA",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "GLDD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -110,10 +130,14 @@
       "priority": "Alta",
       "note": "Principal candidata. Zona ideal: 6,50; revisar ejecucion si mejora la punta.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (GOGLD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.3072196620583652,
-      "signal": "CERCA DE COMPRA"
+      "signal": "CERCA DE COMPRA",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "GOGLD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -129,10 +153,14 @@
       "priority": "Baja",
       "note": "Riesgo alto. Solo seguimiento tactico.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (IBITD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.38289725590299123,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "IBITD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -148,10 +176,14 @@
       "priority": "Baja",
       "note": "Fuera de cartera salvo nuevo gatillo claro.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (ITAD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 1.376389624139746,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "ITAD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -167,10 +199,14 @@
       "priority": "Baja",
       "note": "Especulativa y volatil. No perseguir.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (LACD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.3355704697986506,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "LACD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -186,10 +222,14 @@
       "priority": "Alta",
       "note": "Cerca de zona. Mejor esperar 14,38/14,40 salvo caida adicional.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (MELID.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.20696791997239986,
-      "signal": "CERCA DE COMPRA"
+      "signal": "CERCA DE COMPRA",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "MELID.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -205,10 +245,14 @@
       "priority": "Media",
       "note": "Mantener. Baja leve, no es oportunidad principal.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (METAD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.07701193685021014,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "METAD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -224,10 +268,14 @@
       "priority": "Alta",
       "note": "Cerca. Recompra atractiva solo en 15,25/15,20.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (MSFTD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.3273322422258639,
-      "signal": "CERCA DE COMPRA"
+      "signal": "CERCA DE COMPRA",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "MSFTD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -243,10 +291,14 @@
       "priority": "Alta",
       "note": "Nucleo. Sumar solo si corrige mas.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (NVDAD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.3116883116883235,
-      "signal": "CERCA DE COMPRA"
+      "signal": "CERCA DE COMPRA",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "NVDAD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -262,10 +314,14 @@
       "priority": "Media",
       "note": "Spread alto. Revisar solo si baja mas.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (ORCLD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.4744958481613354,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "ORCLD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -281,10 +337,14 @@
       "priority": "Media",
       "note": "Indice tech. No prioridad frente a CEDEARs puntuales.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (QQQD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.36222509702458106,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "QQQD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -300,10 +360,14 @@
       "priority": "Media",
       "note": "Base de mercado. Mantener.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (SPYD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.2282236591859974,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "SPYD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -319,10 +383,14 @@
       "priority": "Media",
       "note": "Volatil. No perseguir suba.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (TSLAD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.3762613305968854,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "TSLAD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -338,10 +406,14 @@
       "priority": "Media",
       "note": "Fuerte, pero no entrar despues de suba.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (VSTD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.7892659826361595,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "VSTD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "PORTAFOLIO",
@@ -357,10 +429,14 @@
       "priority": "Baja/Media",
       "note": "Defensiva. No prioridad para compra agresiva.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (XLPD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.5644402634054609,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "XLPD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "ANALISIS",
@@ -376,10 +452,14 @@
       "priority": "Media",
       "note": "Buen activo, pero esta demasiado en verde.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (CATD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.509337860780989,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "CATD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "ANALISIS",
@@ -395,10 +475,14 @@
       "priority": "Alta",
       "note": "Interesante. Orden preferida cerca de 16.720; no pagar de mas.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (CRM.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.11947431302270012,
-      "signal": "CERCA DE COMPRA"
+      "signal": "CERCA DE COMPRA",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "CRM.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "ANALISIS",
@@ -414,10 +498,14 @@
       "priority": "Baja",
       "note": "Solo seguimiento.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (KEEL.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.17368649587494572,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "KEEL.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "ANALISIS",
@@ -433,10 +521,14 @@
       "priority": "Baja/Media",
       "note": "Viene fuerte; no prioridad frente a CRM/PANW.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (NMR.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.3184713375796179,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "NMR.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "ANALISIS",
@@ -452,10 +544,14 @@
       "priority": "Media/Alta",
       "note": "Buena empresa, pero todavia no esta en precio ideal.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (PANW.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.2808199943836001,
-      "signal": "CERCA DE COMPRA"
+      "signal": "CERCA DE COMPRA",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "PANW.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "ANALISIS",
@@ -471,10 +567,14 @@
       "priority": "Alta",
       "note": "Calidad, pero no perseguir en verde.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (TSMD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.7751937984496097,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "TSMD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "ANALISIS",
@@ -490,10 +590,14 @@
       "priority": "Media",
       "note": "Volatil. Mirar solo en retroceso.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (URAD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.27210884353740916,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "URAD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     },
     {
       "group": "ANALISIS",
@@ -509,10 +613,14 @@
       "priority": "Media",
       "note": "Defensiva. No prioridad para compra agresiva.",
       "updatedAt": "2026-06-02 17:25:10 America/Buenos_Aires",
-      "sourceStatus": "actualizado desde fuente publica sanitizada",
-      "bidAskStatus": "bid/ask actualizado desde fuente publica",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (XLVD.BA)",
+      "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.9514747859181697,
-      "signal": "MANTENER"
+      "signal": "MANTENER",
+      "source": "Yahoo Finance Chart publico",
+      "sourceSymbol": "XLVD.BA",
+      "sourceReliability": "stale",
+      "signalStatus": "senal calculada"
     }
   ]
 }
