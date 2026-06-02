@@ -22,6 +22,7 @@ function getSpread(row) {
 }
 
 function getSignal(row) {
+  if (row.signal) return row.signal;
   if (row.priority === "Descartar") return "EVITAR";
   const price = toNumber(row.price);
   const ask = toNumber(row.ask);
@@ -70,6 +71,13 @@ function priorityClass(priority) {
   if (priority === "Media" || priority === "Baja/Media") return "priority-mid";
   if (priority === "Descartar") return "priority-discard";
   return "priority-low";
+}
+
+function getDisplayNote(row) {
+  const details = [row.note];
+  if (row.bidAskStatus) details.push(`Bid/ask: ${row.bidAskStatus}.`);
+  if (row.sourceStatus) details.push(`Fuente: ${row.sourceStatus}.`);
+  return details.filter(Boolean).join(" ");
 }
 
 function getFilters() {
@@ -128,7 +136,7 @@ function render() {
       <td class="num">${formatMoney(row.sellTrigger, row.currency)}</td>
       <td class="priority ${priorityClass(row.priority)}">${escapeHtml(row.priority)}</td>
       <td><span class="badge ${signalClass(row.signal)}">${escapeHtml(row.signal)}</span></td>
-      <td class="note">${escapeHtml(row.note)}</td>
+      <td class="note">${escapeHtml(getDisplayNote(row))}</td>
       <td class="muted">${escapeHtml(row.updatedAt || LAST_UPDATED)}</td>
     </tr>
   `).join("");
