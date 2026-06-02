@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PPI Watchlist - Panel publico</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Version publica sanitizada</p>
+      <h1>PPI Watchlist</h1>
+      <p class="lead">Seguimiento estatico de oportunidades por gatillos. No ejecuta ordenes, no inicia sesion y no se conecta a una cuenta de PPI.</p>
+    </div>
+    <div class="status-panel" aria-label="Estado del panel">
+      <span>Ultima actualizacion</span>
+      <strong id="lastUpdated">-</strong>
+    </div>
+  </header>
+
+  <main>
+    <section class="notice" aria-label="Alcance del panel">
+      <div>
+        <strong>Uso publico</strong>
+        <span>Solo watchlist, precios observados, puntas, prioridades, gatillos y senales automaticas.</span>
+      </div>
+      <div>
+        <strong>Sin conexion privada</strong>
+        <span>No contiene credenciales, claves, tokens, datos de cuenta, cantidades reales ni patrimonio.</span>
+      </div>
+      <div>
+        <strong>Decision asistida</strong>
+        <span>Las senales son alertas para revisar, no recomendaciones ni ordenes automaticas.</span>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Filtros">
+      <input id="searchInput" type="search" placeholder="Buscar ticker, nombre u observacion">
+      <select id="groupFilter">
+        <option value="">Todos los grupos</option>
+        <option value="PORTAFOLIO">PORTAFOLIO</option>
+        <option value="ANALISIS">ANALISIS</option>
+      </select>
+      <select id="priorityFilter">
+        <option value="">Todas las prioridades</option>
+        <option value="Alta">Alta</option>
+        <option value="Media/Alta">Media/Alta</option>
+        <option value="Media">Media</option>
+        <option value="Baja/Media">Baja/Media</option>
+        <option value="Baja">Baja</option>
+        <option value="Descartar">Descartar</option>
+      </select>
+      <select id="signalFilter">
+        <option value="">Todas las senales</option>
+        <option value="REVISAR COMPRA">REVISAR COMPRA</option>
+        <option value="CERCA DE COMPRA">CERCA DE COMPRA</option>
+        <option value="REVISAR VENTA">REVISAR VENTA</option>
+        <option value="MANTENER">MANTENER</option>
+        <option value="EVITAR">EVITAR</option>
+      </select>
+      <button id="resetButton" type="button">Limpiar</button>
+    </section>
+
+    <section class="metrics" aria-label="Resumen de senales">
+      <article>
+        <span>Total</span>
+        <strong id="metricTotal">-</strong>
+      </article>
+      <article>
+        <span>Revisar compra</span>
+        <strong id="metricBuy">-</strong>
+      </article>
+      <article>
+        <span>Cerca de compra</span>
+        <strong id="metricNear">-</strong>
+      </article>
+      <article>
+        <span>Revisar venta</span>
+        <strong id="metricSell">-</strong>
+      </article>
+      <article>
+        <span>Evitar</span>
+        <strong id="metricAvoid">-</strong>
+      </article>
+    </section>
+
+    <section class="table-shell" aria-label="Tabla de watchlist">
+      <table>
+        <thead>
+          <tr>
+            <th>Grupo</th>
+            <th>Ticker</th>
+            <th>Nombre</th>
+            <th>Moneda</th>
+            <th class="num">Precio observado</th>
+            <th class="num">Variacion diaria</th>
+            <th class="num">Bid</th>
+            <th class="num">Ask</th>
+            <th class="num">Spread %</th>
+            <th class="num">Gatillo compra</th>
+            <th class="num">Gatillo venta parcial</th>
+            <th>Prioridad</th>
+            <th>Senal automatica</th>
+            <th>Observacion</th>
+            <th>Ultima actualizacion</th>
+          </tr>
+        </thead>
+        <tbody id="watchlistBody"></tbody>
+      </table>
+    </section>
+
+    <p class="rules">Criterios: REVISAR COMPRA si precio observado o ask <= gatillo compra. CERCA DE COMPRA si el precio observado esta hasta 1,5% arriba del gatillo compra. REVISAR VENTA si precio observado >= gatillo venta parcial. EVITAR si prioridad es Descartar. MANTENER cuando no hay gatillo activo.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
