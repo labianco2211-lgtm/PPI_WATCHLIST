@@ -170,7 +170,7 @@ button:hover {
 
 table {
   width: 100%;
-  min-width: 1480px;
+  min-width: 1600px;
   border-collapse: collapse;
 }
 
@@ -281,6 +281,24 @@ tbody tr:hover td {
 .signal-avoid {
   background: rgba(255, 83, 104, .14);
   border: 1px solid rgba(255, 83, 104, .38);
+  color: #ffc4cb;
+}
+
+.source {
+  min-width: 130px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.source-reliable {
+  color: #aaf4ce;
+}
+
+.source-stale {
+  color: #ffe49b;
+}
+
+.source-unreliable {
   color: #ffc4cb;
 }
 
