@@ -1,0 +1,43 @@
+name: Update public watchlist
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 14-21 * * 1-5"
+
+permissions:
+  contents: write
+
+jobs:
+  update-watchlist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Update sanitized public prices
+        env:
+          PUBLIC_PRICE_FEED_URL: ${{ vars.PUBLIC_PRICE_FEED_URL }}
+        run: |
+          if [ -z "$PUBLIC_PRICE_FEED_URL" ]; then
+            echo "PUBLIC_PRICE_FEED_URL no configurada. No se actualiza nada."
+            exit 0
+          fi
+          node tools/update-watchlist.mjs "$PUBLIC_PRICE_FEED_URL"
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- data/watchlist.json; then
+            echo "Sin cambios."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/watchlist.json
+          git commit -m "Update public watchlist prices"
+          git push
