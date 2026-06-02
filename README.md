@@ -6,15 +6,14 @@ Panel publico y estatico para seguir oportunidades de una watchlist de PPI.
 
 - `index.html`: estructura del panel.
 - `style.css`: tema oscuro y layout responsive.
-- `script.js`: filtros, render y calculo de senales automaticas.
-- `data/watchlist.json`: datos publicos sanitizados de la watchlist.
-- `tools/update-watchlist.mjs`: actualizador seguro para precios publicos.
+- `script.js`: lee `data/watchlist.json`, aplica filtros y renderiza la tabla.
+- `data/watchlist.json`: datos publicos sanitizados, precios, bid/ask, estado de fuente y senal automatica.
 
 ## Seguridad
 
 Este sitio esta pensado para publicarse en GitHub Pages, Netlify, Vercel o cualquier hosting estatico.
 
-No se conecta a PPI, no ejecuta ordenes, no usa credenciales, no usa claves API y no necesita backend privado. Solo muestra activos, precios observados, puntas, prioridades, gatillos y observaciones de seguimiento.
+No se conecta a PPI, no ejecuta ordenes, no usa credenciales, no usa claves API y no necesita backend. Solo muestra activos, precios observados, puntas, prioridades, gatillos y observaciones de seguimiento.
 
 ## Senales automaticas
 
@@ -28,20 +27,20 @@ Las senales son alertas para revisar con contexto de mercado. No son ordenes aut
 
 ## Actualizacion
 
-Para actualizar el panel manualmente:
+Para actualizar el panel:
 
 1. Editar precios, puntas, gatillos u observaciones en `data/watchlist.json`.
 2. Mantener solo datos publicos sanitizados.
 3. Publicar reemplazando los mismos archivos.
 
-Frecuencia sugerida: cada 30 o 60 minutos durante la rueda de mercado.
+Frecuencia sugerida: cada 15 minutos durante la rueda de mercado.
 
 ## Actualizacion periodica sin PPI
 
 El repositorio incluye un actualizador seguro:
 
 - `tools/update-watchlist.mjs`: mezcla precios publicos dentro de `data/watchlist.json`.
-- `.github/workflows/update-watchlist.yml`: corre cada 30 minutos de lunes a viernes entre 14:00 y 21:59 UTC, o manualmente desde Actions.
+- `.github/workflows/update-watchlist.yml`: corre cada 15 minutos de lunes a viernes entre 14:00 y 21:59 UTC, o manualmente desde Actions.
 - `data/prices-public.example.csv`: ejemplo de feed publico sanitizado.
 
 El actualizador solo acepta estos campos:
@@ -55,7 +54,7 @@ El actualizador solo acepta estos campos:
 
 Si aparece un campo sensible como usuario, clave, token, email, CUIT, cuenta, comitente, patrimonio, liquidez, cantidad u orden, la actualizacion falla.
 
-Para usarlo en GitHub Actions, configurar una variable del repositorio llamada `PUBLIC_PRICE_FEED_URL` con una URL publica a un CSV o JSON sanitizado. No usar secrets ni credenciales.
+Para usarlo en GitHub Actions, configurar una variable del repositorio llamada `PUBLIC_PRICE_FEED_URL` con una URL publica a un CSV o JSON sanitizado. No usar secrets ni credenciales. Si esa variable no esta configurada, el workflow corre pero no modifica precios.
 
 Ejemplo CSV publico:
 
