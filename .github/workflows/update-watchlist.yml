@@ -21,10 +21,8 @@ jobs:
           node-version: "20"
 
       - name: Update sanitized public prices
-        env:
-          PUBLIC_PRICE_FEED_URL: ${{ vars.PUBLIC_PRICE_FEED_URL }}
         run: |
-          node tools/update-watchlist.mjs "$PUBLIC_PRICE_FEED_URL"
+          node tools/update-watchlist.mjs
 
       - name: Commit if changed
         run: |
