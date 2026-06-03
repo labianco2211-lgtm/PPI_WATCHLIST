@@ -2,9 +2,9 @@ name: Update public watchlist
 
 on:
   schedule:
-    - cron: "30 13 * * 1-5"
-    - cron: "0,30 14-19 * * 1-5"
-    - cron: "0 20 * * 1-5"
+    - cron: "35 13 * * 1-5"
+    - cron: "5,35 14-19 * * 1-5"
+    - cron: "5 20 * * 1-5"
   workflow_dispatch:
 
 permissions:
