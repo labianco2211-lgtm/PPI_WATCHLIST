@@ -2,6 +2,9 @@ name: Update public watchlist
 
 on:
   schedule:
+    # Cada 30 minutos durante mercado argentino:
+    # 10:35, 11:05, 11:35, 12:05, 12:35, 13:05, 13:35,
+    # 14:05, 14:35, 15:05, 15:35, 16:05, 16:35 y 17:05 ART.
     - cron: "35 13 * * 1-5"
     - cron: "5,35 14-19 * * 1-5"
     - cron: "5 20 * * 1-5"
@@ -23,10 +26,13 @@ jobs:
           node-version: "20"
 
       - name: Update sanitized public prices
+        id: update
+        continue-on-error: true
         run: |
           node tools/update-watchlist.mjs
 
       - name: Commit if changed
+        if: always()
         run: |
           if git diff --quiet -- data/watchlist.json; then
             echo "Sin cambios."
@@ -37,3 +43,9 @@ jobs:
           git add data/watchlist.json
           git commit -m "Update public watchlist prices"
           git push
+
+      - name: Fail workflow if updater failed
+        if: steps.update.outcome == 'failure'
+        run: |
+          echo "El actualizador fallo, pero se intento publicar updateStatus=ERROR en data/watchlist.json."
+          exit 1
