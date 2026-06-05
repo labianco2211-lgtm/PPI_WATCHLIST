@@ -1,7 +1,40 @@
 const DATA_URL = "data/watchlist.json";
+const REFRESH_INTERVAL_MS = 30 * 60 * 1000;
+const STALE_ALERT_MINUTES = 35;
+const ARGENTINA_TIME_ZONE = "America/Argentina/Buenos_Aires";
+const SOURCE_FALLBACK = "Yahoo Finance Chart publico via GitHub Actions";
+const RUN_SLOTS = [
+  [10, 35],
+  [11, 5],
+  [11, 35],
+  [12, 5],
+  [12, 35],
+  [13, 5],
+  [13, 35],
+  [14, 5],
+  [14, 35],
+  [15, 5],
+  [15, 35],
+  [16, 5],
+  [16, 35],
+  [17, 5]
+];
 
 let WATCHLIST = [];
 let LAST_UPDATED = "-";
+let META = {
+  lastUpdated: null,
+  lastUpdatedArgentina: "-",
+  nextUpdate: null,
+  nextUpdateArgentina: "-",
+  source: SOURCE_FALLBACK,
+  runId: "-",
+  buildId: "-",
+  updateStatus: "DESACTUALIZADO",
+  updateError: ""
+};
+let lastLoadError = null;
+let refreshTimer = null;
 
 const SIGNAL_ORDER = {
   "REVISAR COMPRA": 0,
@@ -72,6 +105,92 @@ function escapeHtml(value) {
   })[char]);
 }
 
+function formatArgentinaDate(value) {
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) return "-";
+  return new Intl.DateTimeFormat("es-AR", {
+    timeZone: ARGENTINA_TIME_ZONE,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false
+  }).format(date) + " America/Argentina/Buenos_Aires";
+}
+
+function argentinaParts(date = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: ARGENTINA_TIME_ZONE,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false
+  }).formatToParts(date);
+  const byType = Object.fromEntries(parts.map(part => [part.type, part.value]));
+  return {
+    year: Number(byType.year),
+    month: Number(byType.month),
+    day: Number(byType.day),
+    hour: Number(byType.hour),
+    minute: Number(byType.minute)
+  };
+}
+
+function argentinaDateToUtc(year, month, day, hour, minute) {
+  return new Date(Date.UTC(year, month - 1, day, hour + 3, minute));
+}
+
+function addArgentinaDays(parts, days) {
+  const shifted = new Date(Date.UTC(parts.year, parts.month - 1, parts.day + days, 15));
+  return {
+    year: shifted.getUTCFullYear(),
+    month: shifted.getUTCMonth() + 1,
+    day: shifted.getUTCDate(),
+    hour: 0,
+    minute: 0
+  };
+}
+
+function isBusinessDayArgentina(parts) {
+  const noonUtc = argentinaDateToUtc(parts.year, parts.month, parts.day, 12, 0);
+  const weekday = noonUtc.getUTCDay();
+  return weekday >= 1 && weekday <= 5;
+}
+
+function isMarketOpenArgentina(date = new Date()) {
+  const parts = argentinaParts(date);
+  if (!isBusinessDayArgentina(parts)) return false;
+  const minutes = parts.hour * 60 + parts.minute;
+  return minutes >= 10 * 60 + 30 && minutes <= 17 * 60 + 5;
+}
+
+function nextOperationalRun(from = new Date()) {
+  let parts = argentinaParts(from);
+  for (let offset = 0; offset < 8; offset += 1) {
+    if (!isBusinessDayArgentina(parts)) {
+      parts = addArgentinaDays(parts, 1);
+      continue;
+    }
+
+    for (const [hour, minute] of RUN_SLOTS) {
+      const candidate = argentinaDateToUtc(parts.year, parts.month, parts.day, hour, minute);
+      if (candidate.getTime() > from.getTime()) return candidate;
+    }
+    parts = addArgentinaDays(parts, 1);
+  }
+  return null;
+}
+
+function minutesSince(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return null;
+  return Math.max(0, Math.round((Date.now() - date.getTime()) / 60000));
+}
+
 function signalClass(signal) {
   if (signal === "REVISAR COMPRA") return "signal-buy";
   if (signal === "CERCA DE COMPRA") return "signal-near";
@@ -85,6 +204,13 @@ function priorityClass(priority) {
   if (priority === "Media" || priority === "Baja/Media") return "priority-mid";
   if (priority === "Descartar") return "priority-discard";
   return "priority-low";
+}
+
+function stateClass(state) {
+  if (state === "OK") return "state-ok";
+  if (state === "DESACTUALIZADO") return "state-stale";
+  if (state === "ERROR") return "state-error";
+  return "state-unknown";
 }
 
 function getDisplayNote(row) {
@@ -123,6 +249,43 @@ function getRows() {
     ));
 }
 
+function currentPanelState(ageMinutes) {
+  if (lastLoadError || META.updateStatus === "ERROR") return "ERROR";
+  if (isMarketOpenArgentina() && ageMinutes !== null && ageMinutes > STALE_ALERT_MINUTES) return "DESACTUALIZADO";
+  return "OK";
+}
+
+function renderStatus() {
+  const ageMinutes = minutesSince(META.lastUpdated);
+  const nextUpdateDate = META.nextUpdate ? new Date(META.nextUpdate) : nextOperationalRun();
+  const state = currentPanelState(ageMinutes);
+  const lastUpdatedLabel = META.lastUpdatedArgentina || formatArgentinaDate(META.lastUpdated);
+  const nextUpdateLabel = META.nextUpdateArgentina || formatArgentinaDate(nextUpdateDate);
+  const ageLabel = ageMinutes === null ? "-" : `${ageMinutes} min`;
+  const buildLabel = META.buildId || META.runId || "-";
+  const alert = document.getElementById("staleAlert");
+  const alertDetail = document.getElementById("staleAlertDetail");
+  const updateState = document.getElementById("updateState");
+
+  document.getElementById("lastUpdated").textContent = lastUpdatedLabel;
+  document.getElementById("nextUpdate").textContent = nextUpdateLabel;
+  document.getElementById("dataAge").textContent = ageLabel;
+  document.getElementById("dataSource").textContent = META.source || SOURCE_FALLBACK;
+  document.getElementById("buildId").textContent = buildLabel;
+  updateState.textContent = state;
+  updateState.className = `state ${stateClass(state)}`;
+
+  if (state === "DESACTUALIZADO") {
+    alert.hidden = false;
+    alertDetail.textContent = `El JSON tiene ${ageLabel} de antiguedad durante horario de mercado.`;
+  } else if (state === "ERROR") {
+    alert.hidden = false;
+    alertDetail.textContent = META.updateError || lastLoadError?.message || "Fallo la lectura o actualizacion del JSON.";
+  } else {
+    alert.hidden = true;
+  }
+}
+
 function updateMetrics(allRows) {
   document.getElementById("metricTotal").textContent = WATCHLIST.length;
   document.getElementById("metricBuy").textContent = allRows.filter(row => row.signal === "REVISAR COMPRA").length;
@@ -135,7 +298,7 @@ function render() {
   const allRows = WATCHLIST.map(row => ({ ...row, spread: getSpread(row), signal: getSignal(row) }));
   const rows = getRows();
   updateMetrics(allRows);
-  document.getElementById("lastUpdated").textContent = LAST_UPDATED;
+  renderStatus();
   document.getElementById("watchlistBody").innerHTML = rows.map(row => `
     <tr>
       <td>${escapeHtml(row.group)}</td>
@@ -166,15 +329,57 @@ function resetFilters() {
   render();
 }
 
+function applyPayloadMeta(payload) {
+  const payloadNextUpdate = payload.nextUpdate ? new Date(payload.nextUpdate) : null;
+  const nextUpdate = payloadNextUpdate && payloadNextUpdate.getTime() > Date.now()
+    ? payloadNextUpdate.toISOString()
+    : nextOperationalRun()?.toISOString() || null;
+  META = {
+    lastUpdated: payload.lastUpdated || null,
+    lastUpdatedArgentina: payload.lastUpdatedArgentina || formatArgentinaDate(payload.lastUpdated),
+    nextUpdate,
+    nextUpdateArgentina: formatArgentinaDate(nextUpdate),
+    source: payload.source || SOURCE_FALLBACK,
+    runId: payload.runId || "-",
+    buildId: payload.buildId || payload.runId || "-",
+    updateStatus: payload.updateStatus || "OK",
+    updateError: payload.updateError || ""
+  };
+  LAST_UPDATED = META.lastUpdatedArgentina || META.lastUpdated || "-";
+}
+
 async function loadWatchlist() {
-  const response = await fetch(DATA_URL, { cache: "no-store" });
-  if (!response.ok) {
-    throw new Error(`No se pudo cargar ${DATA_URL}`);
+  const refreshButton = document.getElementById("refreshNowButton");
+  refreshButton.disabled = true;
+  refreshButton.textContent = "Actualizando";
+
+  try {
+    const response = await fetch(`${DATA_URL}?v=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`No se pudo cargar ${DATA_URL}: HTTP ${response.status}`);
+    }
+    const payload = await response.json();
+    lastLoadError = null;
+    applyPayloadMeta(payload);
+    WATCHLIST = Array.isArray(payload.items) ? payload.items : [];
+    render();
+  } catch (error) {
+    lastLoadError = error;
+    META.updateStatus = "ERROR";
+    META.updateError = error.message;
+    renderStatus();
+    if (!WATCHLIST.length) {
+      document.getElementById("watchlistBody").innerHTML = `<tr><td colspan="16">${escapeHtml(error.message)}</td></tr>`;
+    }
+  } finally {
+    refreshButton.disabled = false;
+    refreshButton.textContent = "Actualizar ahora";
   }
-  const payload = await response.json();
-  LAST_UPDATED = payload.lastUpdated || "-";
-  WATCHLIST = Array.isArray(payload.items) ? payload.items : [];
-  render();
+}
+
+function startAutoRefresh() {
+  if (refreshTimer) clearInterval(refreshTimer);
+  refreshTimer = setInterval(loadWatchlist, REFRESH_INTERVAL_MS);
 }
 
 ["searchInput", "groupFilter", "priorityFilter", "signalFilter"].forEach(id => {
@@ -182,8 +387,8 @@ async function loadWatchlist() {
 });
 
 document.getElementById("resetButton").addEventListener("click", resetFilters);
+document.getElementById("refreshNowButton").addEventListener("click", loadWatchlist);
 
-loadWatchlist().catch(error => {
-  document.getElementById("lastUpdated").textContent = "Error de carga";
-  document.getElementById("watchlistBody").innerHTML = `<tr><td colspan="16">${escapeHtml(error.message)}</td></tr>`;
-});
+loadWatchlist();
+startAutoRefresh();
+setInterval(renderStatus, 60 * 1000);
