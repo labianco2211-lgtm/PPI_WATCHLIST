@@ -16,10 +16,37 @@
     <div class="status-panel" aria-label="Estado del panel">
       <span>Ultima actualizacion</span>
       <strong id="lastUpdated">-</strong>
+      <dl>
+        <div>
+          <dt>Proxima estimada</dt>
+          <dd id="nextUpdate">-</dd>
+        </div>
+        <div>
+          <dt>Edad del dato</dt>
+          <dd id="dataAge">-</dd>
+        </div>
+        <div>
+          <dt>Estado</dt>
+          <dd id="updateState" class="state state-unknown">-</dd>
+        </div>
+        <div>
+          <dt>Fuente</dt>
+          <dd id="dataSource">-</dd>
+        </div>
+        <div>
+          <dt>Run/build</dt>
+          <dd id="buildId">-</dd>
+        </div>
+      </dl>
     </div>
   </header>
 
   <main>
+    <section id="staleAlert" class="stale-alert" hidden>
+      <strong>WATCHLIST DESACTUALIZADA</strong>
+      <span id="staleAlertDetail">El JSON supera los 35 minutos de antiguedad durante horario de mercado.</span>
+    </section>
+
     <section class="notice" aria-label="Alcance del panel">
       <div>
         <strong>Uso publico</strong>
@@ -60,6 +87,7 @@
         <option value="EVITAR">EVITAR</option>
       </select>
       <button id="resetButton" type="button">Limpiar</button>
+      <button id="refreshNowButton" type="button">Actualizar ahora</button>
     </section>
 
     <section class="metrics" aria-label="Resumen de senales">
