@@ -34,17 +34,36 @@ Para actualizar el panel:
 2. Mantener solo datos publicos sanitizados.
 3. Publicar reemplazando los mismos archivos.
 
-Frecuencia sugerida: cada 15 minutos durante la rueda de mercado.
+Frecuencia operativa: cada 30 minutos durante la rueda de mercado argentina.
 
 ## Actualizacion periodica sin PPI
 
 El repositorio incluye un actualizador seguro:
 
 - `tools/update-watchlist.mjs`: mezcla precios publicos dentro de `data/watchlist.json`.
-- `.github/workflows/update-watchlist.yml`: corre cada 15 minutos de lunes a viernes entre 14:00 y 21:59 UTC, o manualmente desde Actions.
+- `.github/workflows/update-watchlist.yml`: corre cada 30 minutos de lunes a viernes durante mercado argentino, o manualmente desde Actions.
 - `tools/fetch-public-prices.mjs`: intenta resolver cada ticker contra fuentes publicas sin login.
 
 El workflow no requiere variables, secrets ni credenciales. Usa fuentes publicas sin login.
+
+Horario operativo America/Argentina/Buenos_Aires:
+
+- 10:35, 11:05, 11:35, 12:05, 12:35, 13:05, 13:35, 14:05, 14:35, 15:05, 15:35, 16:05, 16:35 y 17:05.
+
+La pantalla publica vuelve a leer `data/watchlist.json` cada 30 minutos y tambien permite forzar lectura con el boton `Actualizar ahora`. El fetch usa cache-busting con `data/watchlist.json?v=timestamp`.
+
+El JSON publica metadatos de monitoreo:
+
+- `lastUpdated` y `lastUpdatedArgentina`.
+- `nextUpdate` y `nextUpdateArgentina`.
+- `source`.
+- `runId` y `buildId`.
+- `updateStatus`: `OK` o `ERROR`.
+- `updateError`, cuando exista.
+
+Si el JSON tiene mas de 35 minutos de antiguedad durante horario de mercado, la pantalla muestra `WATCHLIST DESACTUALIZADA`.
+
+El workflow commitea `data/watchlist.json` en la misma rama desde la que corre el HTML publico. Para que GitHub Pages publique el JSON actualizado, Pages debe apuntar a esa misma rama y carpeta del sitio.
 
 Fuente principal:
 
@@ -63,6 +82,10 @@ Tambien se puede probar localmente:
 ```bash
 node tools/update-watchlist.mjs
 ```
+
+El monitoreo principal es GitHub Actions. Para uso local, abrir la pagina con un servidor estatico y dejarla abierta: el navegador relee el JSON cada 30 minutos. Si se quiere actualizar el JSON local sin GitHub, ejecutar `node tools/update-watchlist.mjs` manualmente o programarlo cada 30 minutos en el sistema operativo.
+
+Tambien existe `actualizar_watchlist_cada_30_min.bat`, que ejecuta el actualizador local en bucle cada 30 minutos hasta detenerlo con `Ctrl+C`.
 
 ## Publicacion rapida
 
