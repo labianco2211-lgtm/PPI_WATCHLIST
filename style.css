@@ -60,7 +60,7 @@ h1 {
 }
 
 .status-panel {
-  min-width: 260px;
+  min-width: 320px;
   padding: 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -81,8 +81,79 @@ h1 {
   color: #cfeeff;
 }
 
+.status-panel dl {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 0;
+}
+
+.status-panel div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.status-panel dt,
+.status-panel dd {
+  margin: 0;
+}
+
+.status-panel dt {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.status-panel dd {
+  color: #dceaf2;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.state {
+  font-weight: 800;
+}
+
+.state-ok {
+  color: var(--green);
+}
+
+.state-stale {
+  color: var(--yellow);
+}
+
+.state-error {
+  color: var(--red);
+}
+
+.state-unknown {
+  color: var(--muted);
+}
+
 main {
   padding: 18px 28px 32px;
+}
+
+.stale-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 12px;
+  border: 1px solid rgba(255, 83, 104, .48);
+  border-radius: 8px;
+  background: rgba(255, 83, 104, .12);
+  color: #ffd7dc;
+}
+
+.stale-alert strong {
+  color: #fff0f2;
+}
+
+.stale-alert span {
+  color: #ffc4cb;
+  font-size: 12px;
 }
 
 .notice {
@@ -113,7 +184,7 @@ main {
 
 .toolbar {
   display: grid;
-  grid-template-columns: minmax(260px, 1fr) 170px 180px 190px 96px;
+  grid-template-columns: minmax(260px, 1fr) 170px 180px 190px 96px 150px;
   gap: 10px;
   margin-bottom: 14px;
 }
