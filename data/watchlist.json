@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-31T20:41:37.979Z",
+  "lastUpdated": "2026-07-31T21:16:02.082Z",
   "items": [
     {
       "group": "PORTAFOLIO",
@@ -199,13 +199,13 @@
       "priority": "Baja",
       "note": "Especulativa y volatil. No perseguir.",
       "updatedAt": "2026-07-31T19:42:28.000Z",
-      "sourceStatus": "precio actualizado desde Yahoo Finance Chart publico (LACD.BA)",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (LACD.BA)",
       "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.3355704697986506,
       "signal": "MANTENER",
       "source": "Yahoo Finance Chart publico",
       "sourceSymbol": "LACD.BA",
-      "sourceReliability": "reliable",
+      "sourceReliability": "stale",
       "signalStatus": "senal calculada"
     },
     {
@@ -623,12 +623,12 @@
       "signalStatus": "senal calculada"
     }
   ],
-  "lastUpdatedArgentina": "31/07/2026, 17:41:37 America/Argentina/Buenos_Aires",
+  "lastUpdatedArgentina": "31/07/2026, 18:16:02 America/Argentina/Buenos_Aires",
   "nextUpdate": "2026-08-03T13:35:00.000Z",
   "nextUpdateArgentina": "03/08/2026, 10:35:00 America/Argentina/Buenos_Aires",
   "source": "Yahoo Finance Chart publico via GitHub Actions",
-  "runId": "30663837529",
-  "buildId": "30663837529.1-6933fe4",
+  "runId": "30665940775",
+  "buildId": "30665940775.1-d8bb623",
   "updateStatus": "OK",
   "updateError": "",
   "timeZone": "America/Argentina/Buenos_Aires",
