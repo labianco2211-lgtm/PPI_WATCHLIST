@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-28T23:25:31.545Z",
+  "lastUpdated": "2026-08-29T02:47:10.921Z",
   "items": [
     {
       "group": "PORTAFOLIO",
@@ -623,12 +623,12 @@
       "signalStatus": "senal calculada"
     }
   ],
-  "lastUpdatedArgentina": "28/08/2026, 20:25:31 America/Argentina/Buenos_Aires",
+  "lastUpdatedArgentina": "28/08/2026, 23:47:10 America/Argentina/Buenos_Aires",
   "nextUpdate": "2026-08-31T13:35:00.000Z",
   "nextUpdateArgentina": "31/08/2026, 10:35:00 America/Argentina/Buenos_Aires",
   "source": "Yahoo Finance Chart publico via GitHub Actions",
-  "runId": "33220377526",
-  "buildId": "33220377526.1-8e54d6f",
+  "runId": "33229794222",
+  "buildId": "33229794222.1-86806d1",
   "updateStatus": "OK",
   "updateError": "",
   "timeZone": "America/Argentina/Buenos_Aires",
