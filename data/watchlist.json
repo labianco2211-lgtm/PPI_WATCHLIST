@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-24T21:41:29.316Z",
+  "lastUpdated": "2026-09-24T23:10:01.832Z",
   "items": [
     {
       "group": "PORTAFOLIO",
@@ -153,13 +153,13 @@
       "priority": "Baja",
       "note": "Riesgo alto. Solo seguimiento tactico.",
       "updatedAt": "2026-09-24T20:13:57.000Z",
-      "sourceStatus": "precio actualizado desde Yahoo Finance Chart publico (IBITD.BA)",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (IBITD.BA)",
       "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.38289725590299123,
       "signal": "MANTENER",
       "source": "Yahoo Finance Chart publico",
       "sourceSymbol": "IBITD.BA",
-      "sourceReliability": "reliable",
+      "sourceReliability": "stale",
       "signalStatus": "senal calculada"
     },
     {
@@ -623,12 +623,12 @@
       "signalStatus": "senal calculada"
     }
   ],
-  "lastUpdatedArgentina": "24/09/2026, 18:41:29 America/Argentina/Buenos_Aires",
+  "lastUpdatedArgentina": "24/09/2026, 20:10:01 America/Argentina/Buenos_Aires",
   "nextUpdate": "2026-09-25T13:35:00.000Z",
   "nextUpdateArgentina": "25/09/2026, 10:35:00 America/Argentina/Buenos_Aires",
   "source": "Yahoo Finance Chart publico via GitHub Actions",
-  "runId": "36063045691",
-  "buildId": "36063045691.1-4b14c1d",
+  "runId": "36071326665",
+  "buildId": "36071326665.1-0671468",
   "updateStatus": "OK",
   "updateError": "",
   "timeZone": "America/Argentina/Buenos_Aires",
