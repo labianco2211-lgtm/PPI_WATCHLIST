@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-17T21:52:44.190Z",
+  "lastUpdated": "2026-11-17T22:02:59.677Z",
   "items": [
     {
       "group": "PORTAFOLIO",
@@ -429,13 +429,13 @@
       "priority": "Baja/Media",
       "note": "Defensiva. No prioridad para compra agresiva.",
       "updatedAt": "2026-11-17T20:25:36.000Z",
-      "sourceStatus": "precio actualizado desde Yahoo Finance Chart publico (XLPD.BA)",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (XLPD.BA)",
       "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.5644402634054609,
       "signal": "MANTENER",
       "source": "Yahoo Finance Chart publico",
       "sourceSymbol": "XLPD.BA",
-      "sourceReliability": "reliable",
+      "sourceReliability": "stale",
       "signalStatus": "senal calculada"
     },
     {
@@ -623,12 +623,12 @@
       "signalStatus": "senal calculada"
     }
   ],
-  "lastUpdatedArgentina": "17/11/2026, 18:52:44 America/Argentina/Buenos_Aires",
+  "lastUpdatedArgentina": "17/11/2026, 19:02:59 America/Argentina/Buenos_Aires",
   "nextUpdate": "2026-11-18T13:35:00.000Z",
   "nextUpdateArgentina": "18/11/2026, 10:35:00 America/Argentina/Buenos_Aires",
   "source": "Yahoo Finance Chart publico via GitHub Actions",
-  "runId": "44184338872",
-  "buildId": "44184338872.1-0e8aca2",
+  "runId": "44186075136",
+  "buildId": "44186075136.1-c4db63f",
   "updateStatus": "OK",
   "updateError": "",
   "timeZone": "America/Argentina/Buenos_Aires",
