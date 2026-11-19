@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-19T21:44:15.760Z",
+  "lastUpdated": "2026-11-19T21:58:42.275Z",
   "items": [
     {
       "group": "PORTAFOLIO",
@@ -590,13 +590,13 @@
       "priority": "Media",
       "note": "Volatil. Mirar solo en retroceso.",
       "updatedAt": "2026-11-19T20:20:01.000Z",
-      "sourceStatus": "precio actualizado desde Yahoo Finance Chart publico (URAD.BA)",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (URAD.BA)",
       "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.27210884353740916,
       "signal": "MANTENER",
       "source": "Yahoo Finance Chart publico",
       "sourceSymbol": "URAD.BA",
-      "sourceReliability": "reliable",
+      "sourceReliability": "stale",
       "signalStatus": "senal calculada"
     },
     {
@@ -613,22 +613,22 @@
       "priority": "Media",
       "note": "Defensiva. No prioridad para compra agresiva.",
       "updatedAt": "2026-11-19T20:22:03.000Z",
-      "sourceStatus": "precio actualizado desde Yahoo Finance Chart publico (XLVD.BA)",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (XLVD.BA)",
       "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.9514747859181697,
       "signal": "MANTENER",
       "source": "Yahoo Finance Chart publico",
       "sourceSymbol": "XLVD.BA",
-      "sourceReliability": "reliable",
+      "sourceReliability": "stale",
       "signalStatus": "senal calculada"
     }
   ],
-  "lastUpdatedArgentina": "19/11/2026, 18:44:15 America/Argentina/Buenos_Aires",
+  "lastUpdatedArgentina": "19/11/2026, 18:58:42 America/Argentina/Buenos_Aires",
   "nextUpdate": "2026-11-20T13:35:00.000Z",
   "nextUpdateArgentina": "20/11/2026, 10:35:00 America/Argentina/Buenos_Aires",
   "source": "Yahoo Finance Chart publico via GitHub Actions",
-  "runId": "44621727968",
-  "buildId": "44621727968.1-17ae08e",
+  "runId": "44624069808",
+  "buildId": "44624069808.1-af14cfa",
   "updateStatus": "OK",
   "updateError": "",
   "timeZone": "America/Argentina/Buenos_Aires",
