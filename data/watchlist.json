@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-20T21:28:30.952Z",
+  "lastUpdated": "2026-11-20T21:41:03.713Z",
   "items": [
     {
       "group": "PORTAFOLIO",
@@ -61,13 +61,13 @@
       "priority": "Media",
       "note": "Fuerte, pero evitar comprar despues de la suba.",
       "updatedAt": "2026-11-20T19:58:38.000Z",
-      "sourceStatus": "precio actualizado desde Yahoo Finance Chart publico (CEGD.BA)",
+      "sourceStatus": "fuente publica stale: ultimo dato de Yahoo Finance Chart publico (CEGD.BA)",
       "bidAskStatus": "bid/ask no provisto por la fuente publica; se conserva ultimo valor conocido",
       "spread": 0.9493670886075887,
       "signal": "MANTENER",
       "source": "Yahoo Finance Chart publico",
       "sourceSymbol": "CEGD.BA",
-      "sourceReliability": "reliable",
+      "sourceReliability": "stale",
       "signalStatus": "senal calculada"
     },
     {
@@ -623,12 +623,12 @@
       "signalStatus": "senal calculada"
     }
   ],
-  "lastUpdatedArgentina": "20/11/2026, 18:28:30 America/Argentina/Buenos_Aires",
+  "lastUpdatedArgentina": "20/11/2026, 18:41:03 America/Argentina/Buenos_Aires",
   "nextUpdate": "2026-11-23T13:35:00.000Z",
   "nextUpdateArgentina": "23/11/2026, 10:35:00 America/Argentina/Buenos_Aires",
   "source": "Yahoo Finance Chart publico via GitHub Actions",
-  "runId": "44820599533",
-  "buildId": "44820599533.1-04fe64e",
+  "runId": "44822459346",
+  "buildId": "44822459346.1-1125bf6",
   "updateStatus": "OK",
   "updateError": "",
   "timeZone": "America/Argentina/Buenos_Aires",
